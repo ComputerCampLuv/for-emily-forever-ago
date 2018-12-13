@@ -1,0 +1,81 @@
+body {
+/*	border: 1px solid gray;*/
+	font-family: Helvetica;
+	background-color: #f5e5ff;
+}
+
+h1 {
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+}
+
+nav {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+nav li {
+	margin: 0 auto;
+	background-color: darkgray;
+	display: inline-block;
+	width: 150px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 0;
+	border: 1px solid black;
+}
+
+nav li:hover {
+	background-color: red;
+}
+
+.button {
+	font-style: italic;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link, a:visited, a:hover, a:active {
+	color: black;
+	font-weight: bold;
+}
+
+/*nav li a:link, a:visited, a:hover, a:active {
+	color: white;
+}*/
+
+table {
+	margin: 20px auto 20px auto;
+	min-width: 400px;
+	border: 2px solid #d087ff;
+}
+
+td {
+	width: 50px;
+	padding: 3px;
+}
+
+td.product-title {
+	width: 150px;
+	font-weight: bold;
+}
+
+td.cell-align-right {
+	text-align: right;
+}
+
+td.order-date {
+	text-align: center;
+	background-color: #d087ff
+}
+
+.delete-link {
+	text-align: center;
+	position: relative;
+	top: -15px;
+}

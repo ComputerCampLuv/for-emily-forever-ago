@@ -1,0 +1,16 @@
+<h1><%= @line_item.order.ordered_on %></h1>
+
+<%= form_for @line_item, url: { action: 'create' } do |f| %>
+  <div class="form-order-id"><%= f.text_field :order_id %></div>
+  <%= f.label :product_id %>
+  <%= f.collection_select(:product_id, Product.all, :id, :name, prompt: true) %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, step: 1 %>
+  <%= f.label :unit_price %>
+  <%= f.number_field :unit_price, step: 0.01 %>
+  <%= f.submit 'Add to Order' %>
+<% end %>
+<br /><br />
+<%= link_to 'Add Product', new_product_path %>
+<br /><br />
+<%= link_to 'Back to Order', order_path(@line_item.order) %>

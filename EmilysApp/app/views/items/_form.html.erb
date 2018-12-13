@@ -1,0 +1,9 @@
+<%= simple_form_for @item do |f| %>
+  <h4 class="display-4">
+    <%= f.input :description, class: "big-form form-control form-control-lg"%>
+  </h4>
+  <h4 class="display-4">
+    <%= f.input :base_price, class: "big-form form-control form-control-lg"%>
+  </h4>
+  <%= f.button :submit, class: "big-butt btn btn-lg btn-primary" %>
+<% end %>

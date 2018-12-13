@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      
+
+<%= simple_form_for @order do |f| %>
+<div class="card-header">
+  <h4 class="display-4 mb-4">
+    <%= f.label :date %>
+    <%= f.date_field :ordered_at, class: "big-form form-control form-control-lg" %></h4>
+</div>
+
+  <div class="card-body">
+
+  <%= f.simple_fields_for :lines do |line| %>
+    <%= render 'line_fields', f: line %>
+  <% end %>
+
+<div>
+
+    <%= link_to_add_association 'add line', f, :lines, class: "big-butt btn btn-lg btn-primary" %>
+
+
+    <%= f.submit 'Save', class: "big-butt btn btn-lg btn-success float-right" %>
+
+</div>
+
+<% end %>
+
+</div>
+</div>
+</div>
+</div>

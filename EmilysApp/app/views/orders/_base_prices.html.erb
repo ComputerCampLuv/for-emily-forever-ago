@@ -1,0 +1,9 @@
+<script type="text/javascript">
+
+  window.BasePrices = {};
+
+  <% Item.all.each do |item| %>
+    window.BasePrices[<%= item.id %>] = <%= item.base_price %>;
+  <% end %>
+
+</script>

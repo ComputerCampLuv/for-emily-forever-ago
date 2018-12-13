@@ -1,0 +1,11 @@
+<% @items.each do |item| %>
+  <h4 class="display-4 mb-5">
+    <%= item.description %>
+
+    <%= link_to 'details', edit_item_path(item) %>
+
+</h4>
+<% end %>
+<h4 class="display-4 mb-5">
+  <%= link_to 'add new', new_item_path %>
+</h4>

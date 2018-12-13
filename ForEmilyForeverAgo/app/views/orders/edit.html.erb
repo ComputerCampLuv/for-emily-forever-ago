@@ -1,0 +1,17 @@
+<%= form_for @order, url: {action: "update"} do |f| %>
+  <%= f.date_field :ordered_on %>
+  <%= f.submit "Update" %>
+<% end %>
+
+<% @order.line_items.each do |line| %>
+  <tr>
+    <td><%= line.product.name %></td>
+    <td>  x <%= line.quantity %></td>
+    <td>  @ <%= line.unit_price %></td>
+    <td>  = £<%= line.total %></td>
+    <td><%= link_to 'Show', line_item_path(line) %></td>
+    <td><%= link_to 'Edit', edit_line_item_path(line) %></td>
+    <td><%= link_to 'Delete', line_item_path(line), method: :delete %></td>
+  </tr>
+  <br />
+<% end %>

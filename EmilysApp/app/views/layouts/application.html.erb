@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EmilysApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    	<%= link_to root_path, class: 'navbar-brand' do %>
+        <% if user_signed_in? %>
+          <h3 class="display-3"><%= current_user.username %></h1>
+        <% else %>
+          Welcome
+        <% end %>
+      <% end %>
+
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <h4 class="display-4"><%= link_to 'Admin', items_path, class: 'nav-link' %></h4>
+          </li>
+          <li class="nav-item"><h4 class="display-4"> | </h4></li>
+          <li class="nav-item">
+            <h4 class="display-4"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %></h4>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <div class="container-fluid mt-3">
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: 'alert alert-primary', 'role': 'alert' %>
+      <% end %>
+
+
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

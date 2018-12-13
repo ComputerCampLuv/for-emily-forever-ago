@@ -1,0 +1,5 @@
+<%= form_for @order, url:  { action: 'create' } do |f| %>
+  <%= f.label :ordered_on %>
+  <%= f.date_field :ordered_on %>
+  <%= f.submit 'Create' %>
+<% end %>

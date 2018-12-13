@@ -1,0 +1,21 @@
+<h1>Order for <%= @order.ordered_on %></h1>
+
+<% @order.line_items.each do |line| %>
+  <tr>
+    <td><%= line.product.name %></td>
+    <td>  x <%= line.quantity %></td>
+    <td>  @ <%= line.unit_price %></td>
+    <td>  = £<%= line.total %></td>
+    <td>   :   <%= link_to 'Edit', edit_line_item_path(line) %></td>
+    <td>   :   <%= link_to 'Delete', line_item_path(line), method: :delete %></td>
+  </tr>
+  <br />
+<% end %>
+
+<h4>Total: £<%= @order.total %></h4>
+<br />
+<%= link_to 'Add Line', new_line_item_path(order_id: @order.id) %>
+<br /><br />
+<%= link_to 'Delete Entire Order', order_path(@order), method: :delete %>
+<br /><br />
+<%= link_to 'Back to Orders', orders_path %>

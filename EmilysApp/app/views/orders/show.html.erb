@@ -1,0 +1,7 @@
+<h1><%= @order.ordered_at %></h1>
+
+<div class="link">
+  <%= link_to 'Back', root_path %> | 
+  <%= link_to 'Edit', edit_order_path %> | 
+  <%= link_to 'Delete', @order, method: :delete, data: { confirm: "Are you sure?" } %>
+</div>

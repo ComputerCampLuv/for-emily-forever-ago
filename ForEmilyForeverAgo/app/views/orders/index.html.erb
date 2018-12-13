@@ -1,0 +1,34 @@
+<h1>Current Orders</h1>
+
+
+<% @orders.limit(5).each do |order| %>
+  <table>
+    <tr>
+      <td colspan="5" class="order-date"><%= link_to order.ordered_on, order_path(order) %></td>
+    </tr>
+    <tr>
+      <th>Product</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+    <% order.line_items.each do |line| %>
+      <%= form_for line, url: line_item_path(line) do |f| %>
+      <tr>
+        <td class="product-title"><%= line.product.name %></td>
+        <td><%= f.number_field :quantity, step: 1 %></td>
+        <td><%= f.number_field :unit_price, step: 0.01 %></td>
+        <td class="cell-align-right">£<%= line.total %></td>
+        <td><%= f.submit 'Update' %></td>
+      <% end %>
+    <% end %>
+      <tr>
+      <td colspan="4" class="cell-align-right"><strong>Total</strong>: £<%= order.total %></td>
+    </tr>
+  </table>
+<% end %>
+<nav>
+    <ul>
+      <li><%= link_to 'Create New Order', new_order_path %></li>
+    </ul>
+</nav>

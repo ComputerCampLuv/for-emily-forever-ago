@@ -1,0 +1,8 @@
+<h1><%= @order.ordered_at %></h1>
+
+<%= render 'form' %>
+
+<div class="link">
+  <%= link_to 'Cancel', @order %> |  
+  <%= link_to 'Delete', @order, method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
